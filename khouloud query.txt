@@ -1,0 +1,23 @@
+select
+id_student
+
+from
+public.seance s
+
+inner join
+public.seance_class sc
+on
+s.id_seance = sc.id_seance
+
+inner join
+public.class c
+on c.id_class = sc.id_class
+
+inner join
+public.student st
+on st.id_class = c.id_class
+
+where s.id = 'E1A1' 
+and s.jour ='15-04-2023'
+and s.seance='3'
+
