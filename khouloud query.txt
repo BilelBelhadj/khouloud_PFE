@@ -1,23 +1,32 @@
 select
-id_student
+Id,
+name
 
 from
-public.seance s
+student st
 
 inner join
-public.seance_class sc
+classe cl
 on
-s.id_seance = sc.id_seance
+st.id_classe = cl.id_classe
 
 inner join
-public.class c
-on c.id_class = sc.id_class
+seance_classe sc
+on cl.id_classe = sc.id_classe
 
-inner join
-public.student st
-on st.id_class = c.id_class
+inner join 
+seance s
+on s.id_seance = sc.id_seance
 
-where s.id = 'E1A1' 
-and s.jour ='15-04-2023'
-and s.seance='3'
+inner join 
+salle_seance ss
+on ss.id_seance = ss.id_seance
 
+inner join 
+salle sl
+on sl.id_salle = ss.id_salle
+
+where st.Id = '147248148167' 
+and s.num_seance ='2'
+and s.jour = CURDATE()
+and ss.id_salle='A_TP2';
